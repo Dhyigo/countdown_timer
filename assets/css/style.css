@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500&display=swap');
+
+:root {
+    --black-color: rgb(44, 44, 44);
+    --white-color: white;
+    --btn-color: #4e4e4e;
+    --btn-dark-color: #272727;
+    --font01: 'Inconsolata', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.transition {
+    transition: all 0.5s;
+
+}
+
+.btn {
+    background-color: var(--btn-color);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all 0.3;
+}
+
+.btn:hover {
+    background-color: var(--btn-dark-color);
+}
+
+body {
+    background-color: var(--black-color);
+    font-family: var(--font01);
+    color: var(--white-color);
+    font-weight: 200;
+
+}
+
+.main {
+    min-height: 100hv;
+}
+
+.container-event {
+    max-width: 600px;
+    margin: auto;
+}
+
+.container-title {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 30px auto;
+    padding: 20px;
+    position: relative;
+
+}
+
+.container-title input {
+    background-color: var(--black-color);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.8rem;
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+.container-title input:focus {
+    border: 1px solid rgb(71, 71, 71);
+    background-color: rgb(34, 34, 34);
+    border-radius: 30px;
+}
+
+
+.container-title button {
+    width: auto;
+    border: none;
+    overflow: hidden;
+    border-radius: 0 10px 10px 0;
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+}
+
+.container-title input:focus ~ button  {
+    border-radius: 0 30px 30px 0; 
+}
+
+.container-title button span {
+    display: inline-block;
+    text-align: center;
+    line-height: 2;
+    width: 50px;
+    height: 3rem;
+}
+
+.conatainer-input-date {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.conatainer-input-date label {
+    line-height: 3;
+}
+
+.conatainer-input-date input {
+    border: 1px solid rgb(55, 55, 55);
+    border-radius: 30px;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 2;
+    background-color: var(--black-color);
+    color: white;
+}
+
+.container-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+
+}
+
+.time {
+    padding: 20px;
+    position: relative;
+}
+
+.time:not(.seconds)::after {
+    content: ':';
+    position: absolute;
+    top: 20%;
+    left: 11px;
+    width: 100%;
+    text-align: right;
+    font-size: 3rem;
+}
+
+.time p {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px 0;
+    width: 100%;
+}
+
+
+.time .clock-time {
+    font-weight: 300;
+    font-size: 3rem;
+    position: relative;
+}
+
+
+.clock-time::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0%;
+    bottom: 0%;
+    background-color: var(--white-color);
+}
+
+#list-events {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 30px;
+    list-style-type: none;
+    margin: 20px;
+}
+
+#list-events li {
+    background-color: var(--black-color);
+    height: 1.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.53);
+    border-radius: 30px;
+    padding: 11px 2.6rem 11px 20px;
+
+    line-height: 1.5;
+    position: relative;  
+}
+
+#list-events li::first-letter {
+    text-transform: uppercase;
+}
+
+#list-events li:hover {
+    background-color: var(--btn-dark-color);
+}
+
+#list-events button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    border-radius: 50%;
+    border: 1px solid rgb(83, 83, 83);
+    width: 1.6rem;
+    height: 1.6rem;
+    transform: translateY(-50%);
+}
+
+
+#list-events button::after {
+    content: 'x';
+    
+}
+
+@media (max-width: 390px) {
+
+    .container-title input {
+        height: 2rem;
+        font-size: 1.3rem;
+    }
+
+    .container-title button {
+        height: 2rem;
+    }
+
+    .container-title button span {
+        font-size: 1.3rem;
+        line-height: 1.5;
+        width: 30px;
+    }
+
+    .conatainer-input-date input {
+        font-size: 0.8rem;
+    }
+
+    .time p{
+        font-size: 0.9rem;
+    }
+
+    .time {
+        padding: 10px;
+    }
+
+    .time .clock-time {
+        font-size: 2rem;
+    }
+
+    .time:not(.seconds)::after {
+        content: ':';
+        position: absolute;
+        top: 20%;
+        left: 11px;
+        width: 100%;
+        text-align: right;
+        font-size: 2.5rem;
+    }
+}

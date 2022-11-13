@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <main class="main">
+        <section class="container-event">
+            <div class="container-title">
+                <input id="event-name" value="Event name" disabled class="transition">
+                <button id="save-event" class="transition"><span id="btn-icon" class="material-symbols-outlined btn transition" title="edit event">
+                    edit
+                    </span></button>
+            </div>
+            <div class="conatainer-input-date">
+                <label for="date-input">Date:</label><br>
+                <input type="date" id="date-input" class="btn" min="11/10/2022">
+            </div>
+            <div class="container-timer">
+                <div class="time">
+                    <p class="clock-time" id="days">0</p>
+                    <p class="clock-label">Days</p>
+                </div>
+                <div class="time">
+                    <p class="clock-time" id="hours">0</p>
+                    <p class="clock-label">Hours</p>
+                </div>
+                <div class="time">
+                    <p class="clock-time" id="minutes">0</p>
+                    <p class="clock-label">minutes</p>
+                </div>
+                <div class="time seconds">
+                    <p class="clock-time"  id="seconds">0</p>
+                    <p class="clock-label">Seconds</p>
+                </div>
+            </div>
+            <div class="containar-list-events">
+                <ul id="list-events">
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
