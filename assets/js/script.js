@@ -28,6 +28,7 @@
 
     const elementsTime = document.querySelectorAll('.clock-time');
     const eventTitle = document.querySelector('#event-name');
+    const inputDate = document.querySelector('#input-date');
     const ulEvent = document.querySelector('#list-events');
     let loop = null;
     
@@ -42,8 +43,14 @@
     }
 
     const init = () => {
+        clock.userDate = new Date(inputDate.value);  
         clock.nowDate = new Date().getTime();
-            
+
+        if (clock.userDate <= clock.nowDate) {
+            alert('invalid date!'.toUpperCase());
+            return;
+        }
+
         clearInterval(loop);
 
         loop = setInterval(() => {
@@ -179,16 +186,15 @@
             saveEvent();
             disabledInput(el);
 
-        } else if (el.id === 'date-input') {
+        } else if (el.id === 'input-date') {
             const tomorrow = dateTomorrow();
-
             limitDate(el, tomorrow);
 
         } else if (el.classList.contains('event-names')) {
             const name = formateSave(el.innerText);
             const date = JSON.parse(localStorage.getItem(name));
 
-            clock.userDate = new Date(date);
+            inputDate.value = date.slice(0, 10);
             eventTitle.value = el.innerText;
             init();
 
@@ -196,21 +202,6 @@
         }
     });
 
-    document.addEventListener('change', e => {
-        const el = e.target;
-
-        if (el.id !== 'date-input') return;
-
-        clock.userDate = new Date(el.value);
-        clock.nowDate = new Date().getTime();
-  
-        if (clock.userDate <= clock.nowDate) {
-            alert('invalid date!'.toUpperCase());
-            return;
-        }
-
-        init()
-
-    });
+    inputDate.addEventListener('change', init);
     
 })();
